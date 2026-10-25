@@ -1,0 +1,18 @@
+# Streamlit configuration for the Digit Recognition app
+# This file lives at: d:\DL\Project\.streamlit\config.toml
+
+[theme]
+base = "dark"
+primaryColor = "#6EE7B7"
+backgroundColor = "#0A0F1E"
+secondaryBackgroundColor = "#0D1B2A"
+textColor = "#E2E8F0"
+font = "sans serif"
+
+[server]
+headless = true
+port = 8501
+enableCORS = false
+
+[browser]
+gatherUsageStats = false

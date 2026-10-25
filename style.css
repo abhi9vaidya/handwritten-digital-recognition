@@ -1,0 +1,451 @@
+/* ══════════════════════════════════════════════════════════════════════
+   Digit Recognition App — Custom Dark Theme CSS
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── Google Fonts ─────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ── Global Reset & Base ─────────────────────────────────────────────── */
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Dark background */
+.stApp {
+    background: linear-gradient(135deg, #0A0F1E 0%, #0D1B2A 50%, #0A1628 100%) !important;
+    min-height: 100vh;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #0D1B2A 0%, #0A1525 100%) !important;
+    border-right: 1px solid rgba(99, 179, 237, 0.15) !important;
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    padding: 1.2rem 1rem !important;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0 8px 0;
+}
+
+.sidebar-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.sidebar-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #E2E8F0;
+    line-height: 1.2;
+}
+
+.sidebar-subtitle {
+    font-size: 0.72rem;
+    color: #64748B;
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+/* ── Performance Cards (sidebar) ─────────────────────────────────────── */
+.perf-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(99, 179, 237, 0.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    transition: border-color 0.2s;
+}
+
+.perf-card:hover {
+    border-color: rgba(99, 179, 237, 0.3);
+}
+
+.perf-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #CBD5E1;
+    margin-bottom: 4px;
+}
+
+.perf-metrics {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.perf-acc, .perf-f1 {
+    font-size: 0.7rem;
+    color: #94A3B8;
+}
+
+.perf-bar-wrap {
+    height: 4px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.perf-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    max-width: 100%;
+    min-width: 2%;
+}
+
+/* ── Model Info Box (sidebar) ────────────────────────────────────────── */
+.model-info-box {
+    background: linear-gradient(135deg, rgba(110,231,183,0.08), rgba(99,179,237,0.08));
+    border: 1px solid rgba(110,231,183,0.25);
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.model-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #6EE7B7;
+    margin-bottom: 8px;
+}
+
+.model-stat {
+    font-size: 0.78rem;
+    color: #94A3B8;
+    padding: 2px 0;
+}
+
+/* ── Hero Banner ─────────────────────────────────────────────────────── */
+.hero {
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem;
+}
+
+.hero-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #6EE7B7 0%, #3B82F6 50%, #A78BFA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    color: #64748B;
+    font-weight: 400;
+}
+
+/* ── Status Badge ────────────────────────────────────────────────────── */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+}
+
+.status-live {
+    background: rgba(110, 231, 183, 0.1);
+    border: 1px solid rgba(110, 231, 183, 0.4);
+    color: #6EE7B7;
+}
+
+.status-demo {
+    background: rgba(253, 230, 138, 0.1);
+    border: 1px solid rgba(253, 230, 138, 0.4);
+    color: #FDE68A;
+}
+
+/* ── Section Labels ──────────────────────────────────────────────────── */
+.section-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #94A3B8;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(99,179,237,0.12);
+}
+
+/* ── Canvas hint ─────────────────────────────────────────────────────── */
+.canvas-hint {
+    font-size: 0.78rem;
+    color: #475569;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* ── Predict Button (Streamlit primary button) ───────────────────────── */
+div[data-testid="stButton"] > button[kind="primaryFormSubmit"],
+div[data-testid="stButton"] > button[kind="primary"] {
+    background: linear-gradient(135deg, #3B82F6 0%, #6366F1 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    padding: 0.7rem 1.5rem !important;
+    letter-spacing: 0.02em !important;
+    transition: all 0.25s !important;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35) !important;
+    margin-top: 0.6rem !important;
+}
+
+div[data-testid="stButton"] > button[kind="primary"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5) !important;
+}
+
+div[data-testid="stButton"] > button[kind="primary"]:active {
+    transform: translateY(0) !important;
+}
+
+/* ── Waiting state ───────────────────────────────────────────────────── */
+.result-waiting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    gap: 12px;
+    color: #475569;
+}
+
+.result-waiting-icon {
+    font-size: 3rem;
+    opacity: 0.5;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50%       { opacity: 0.8; transform: scale(1.05); }
+}
+
+.result-waiting-text {
+    font-size: 0.95rem;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* ── Error state ─────────────────────────────────────────────────────── */
+.result-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border: 1px dashed rgba(252, 165, 165, 0.4);
+    border-radius: 12px;
+    color: #FCA5A5;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ── Result Card ─────────────────────────────────────────────────────── */
+.result-card {
+    background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(15,23,42,0.8));
+    border: 1px solid rgba(110,231,183,0.25);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    animation: fadeInUp 0.4s ease;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.result-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748B;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+
+.result-digit {
+    font-size: clamp(4rem, 8vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-shadow: 0 0 40px currentColor;
+    margin: 0.2rem 0;
+    transition: color 0.3s;
+}
+
+.result-confidence {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.result-meta {
+    font-size: 0.72rem;
+    color: #475569;
+}
+
+/* ── Probability Table ───────────────────────────────────────────────── */
+.prob-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    color: #CBD5E1;
+}
+
+.prob-table thead tr th {
+    padding: 6px 8px;
+    text-align: left;
+    color: #64748B;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.prob-table tbody tr {
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.15s;
+}
+
+.prob-table tbody tr:hover {
+    background: rgba(255,255,255,0.03) !important;
+}
+
+.prob-table tbody tr td {
+    padding: 5px 8px;
+    vertical-align: middle;
+}
+
+.prob-bar-outer {
+    height: 6px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+    width: 100%;
+    min-width: 80px;
+}
+
+.prob-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #6EE7B7, #3B82F6);
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ── How It Works Section ────────────────────────────────────────────── */
+.how-to-section {
+    padding: 1.5rem 0 2rem;
+}
+
+.how-to-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #E2E8F0;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+
+.how-to-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.how-to-card {
+    background: rgba(15,23,42,0.7);
+    border: 1px solid rgba(99,179,237,0.12);
+    border-radius: 14px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.how-to-card:hover {
+    border-color: rgba(99,179,237,0.35);
+    transform: translateY(-2px);
+}
+
+.how-to-num {
+    background: linear-gradient(135deg, #3B82F6, #6366F1);
+    color: white;
+    font-weight: 800;
+    font-size: 0.85rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.how-to-text {
+    font-size: 0.83rem;
+    color: #94A3B8;
+    line-height: 1.5;
+}
+
+/* ── Slider & Widget Overrides ───────────────────────────────────────── */
+div[data-testid="stSlider"] label {
+    color: #94A3B8 !important;
+    font-size: 0.8rem !important;
+}
+
+/* ── Metric (sidebar stats) ──────────────────────────────────────────── */
+[data-testid="stMetricLabel"] {
+    font-size: 0.72rem !important;
+    color: #64748B !important;
+}
+
+[data-testid="stMetricValue"] {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #E2E8F0 !important;
+}
+
+/* ── Markdown text ───────────────────────────────────────────────────── */
+.stMarkdown p, .stMarkdown li {
+    color: #94A3B8 !important;
+    font-size: 0.85rem !important;
+}
+
+.stMarkdown h3 {
+    color: #CBD5E1 !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0A0F1E; }
+::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+/* ── Canvas border glow ──────────────────────────────────────────────── */
+canvas {
+    border-radius: 12px !important;
+    box-shadow: 0 0 0 2px rgba(99,179,237,0.15), 0 8px 32px rgba(0,0,0,0.4) !important;
+}
