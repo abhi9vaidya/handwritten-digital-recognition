@@ -9,21 +9,22 @@
 #       streamlit run app.py
 
 # ── Core UI ──────────────────────────────────────────────────────────────────
-streamlit>=1.32.0
-streamlit-drawable-canvas>=0.9.3   # Interactive drawing canvas
+streamlit>=1.35.0
+streamlit-drawable-canvas>=0.9.3
 
 # ── Deep Learning ─────────────────────────────────────────────────────────────
-tensorflow>=2.13.0                  # For loading and running the Keras model
+tensorflow>=2.15.0
 
-# ── Traditional ML (SVM fallback) ────────────────────────────────────────────
-scikit-learn>=1.3.0                 # scikit model support
-joblib>=1.3.0                       # For loading .joblib SVM models
+# ── Machine Learning & Serialization ──────────────────────────────────────────
+scikit-learn>=1.3.0
+joblib>=1.3.0
 
 # ── Image Processing ──────────────────────────────────────────────────────────
-Pillow>=10.0.0                      # Image resize, convert, invert
+Pillow>=10.0.0
 
-# ── Data / Numerics ───────────────────────────────────────────────────────────
+# ── Data & Numerics ───────────────────────────────────────────────────────────
 numpy>=1.24.0
+pandas>=2.0.0
 
-# ── Plotting ──────────────────────────────────────────────────────────────────
-plotly>=5.18.0                      # Interactive confidence bar chart
+# ── Interactive Plotting ──────────────────────────────────────────────────────
+plotly>=5.18.0

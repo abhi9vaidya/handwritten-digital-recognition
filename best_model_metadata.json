@@ -1,48 +1,74 @@
 {
-  "project": "Handwritten Digit Recognition",
-  "best_model_name": "Enhanced CNN",
+  "project": "Handwritten Digit Recognition Using Deep Learning",
+  "best_model_name": "Improved CNN",
   "model_type": "keras",
   "model_filename": "best_model.keras",
   "metrics": {
-    "test_accuracy": 0.9939,
-    "macro_f1": 0.993845,
-    "precision": 0.993974,
-    "recall": 0.993738,
-    "model_size_mb": 10.068
+    "test_accuracy": 0.9906,
+    "macro_f1": 0.9905,
+    "training_time_s": 397.6,
+    "prediction_time_s": 3.36,
+    "model_size_mb": 2.58,
+    "total_params": 675872,
+    "trainable_params": 225226
   },
+  "comparative_results": [
+    {
+      "rank": 1,
+      "model": "Improved CNN",
+      "type": "Deep Learning (CNN + BN + Dropout)",
+      "accuracy": 99.06,
+      "f1_score": 99.05,
+      "train_time_s": 397.6,
+      "pred_time_s": 3.36,
+      "color": "#6EE7B7"
+    },
+    {
+      "rank": 2,
+      "model": "Basic CNN",
+      "type": "Deep Learning (Standard CNN)",
+      "accuracy": 98.90,
+      "f1_score": 98.89,
+      "train_time_s": 340.4,
+      "pred_time_s": 2.75,
+      "color": "#93C5FD"
+    },
+    {
+      "rank": 3,
+      "model": "ANN",
+      "type": "Deep Learning (Dense Fully-Connected)",
+      "accuracy": 97.38,
+      "f1_score": 97.36,
+      "train_time_s": 34.6,
+      "pred_time_s": 0.82,
+      "color": "#FCA5A5"
+    },
+    {
+      "rank": 4,
+      "model": "SVM (RBF)",
+      "type": "Traditional ML (Baseline)",
+      "accuracy": 96.84,
+      "f1_score": 96.82,
+      "train_time_s": 11.9,
+      "pred_time_s": 37.66,
+      "color": "#FDE68A"
+    }
+  ],
   "preprocessing": {
     "normalization": "divide_by_255",
-    "pixel_range": [
-      0.0,
-      1.0
-    ],
-    "input_shape": [
-      28,
-      28,
-      1
-    ],
+    "pixel_range": [0.0, 1.0],
+    "input_shape": [28, 28, 1],
     "input_format": "2d_grayscale",
-    "image_size": [
-      28,
-      28
-    ],
-    "color": "grayscale"
+    "image_size": [28, 28],
+    "color": "grayscale (white digit on black background)"
   },
   "output": {
     "num_classes": 10,
     "labels": {
-      "0": "0",
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9"
+      "0": "0", "1": "1", "2": "2", "3": "3", "4": "4",
+      "5": "5", "6": "6", "7": "7", "8": "8", "9": "9"
     }
   },
   "dataset": "MNIST",
-  "seed": 42
+  "seed": 0
 }
