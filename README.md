@@ -1,6 +1,6 @@
 # 🔢 Handwritten Digit Recognition — Streamlit UI
 
-> **B.Tech Computer Science | Deep Learning Project**  
+> **B.Tech Computer Science | Deep Learning Project :)**  
 > Comparative Analysis: ANN · Basic CNN · Enhanced CNN · SVM on MNIST
 
 ---
