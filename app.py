@@ -1,10 +1,10 @@
 """
-╔══════════════════════════════════════════════════════════════════════╗
-║   Handwritten Digit Recognition — Interactive Deep Learning GUI     ║
-║   B.Tech Computer Science Deep Learning Project                      ║
-║   Authors: Abhinav Vaidya, Gauri Joshi (Roll: B1-03, B1-08)         ║
-║   Models: Improved CNN (Winner) | Basic CNN | ANN | SVM Baseline     ║
-╚══════════════════════════════════════════════════════════════════════╝
+----------------------------------------------------------------------
+Handwritten Digit Recognition — Interactive Deep Learning GUI
+B.Tech Computer Science Deep Learning Project
+Authors: Abhinav Vaidya, Gauri Joshi (Roll Nos: B1-03, B1-08)
+Models: Improved CNN (Winner) | Basic CNN | ANN | SVM Baseline
+----------------------------------------------------------------------
 
 Run locally:
     streamlit run app.py
@@ -25,10 +25,9 @@ import pandas as pd
 import streamlit as st
 from PIL import Image, ImageOps, ImageFilter
 
-# ─── Page Configuration ────────────────────────────────────────────────────────
+# ─── Page Configuration (No Emojis) ───────────────────────────────────────────
 st.set_page_config(
-    page_title="Digit Recognition | Deep Learning Project",
-    page_icon="🔢",
+    page_title="Handwritten Digit Recognition | Deep Learning Project",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -71,10 +70,10 @@ MODEL_JOBLIB_PATH = os.path.join(PROJECT_DIR, "best_model.joblib")
 METADATA_PATH = os.path.join(PROJECT_DIR, "best_model_metadata.json")
 SAMPLES_NPZ_PATH = os.path.join(PROJECT_DIR, "mnist_samples.npz")
 
-# Academic experimental results from comparative study
+# Academic experimental results from comparative study (No Emojis)
 DEFAULT_COMPARATIVE_RESULTS = [
     {
-        "rank": "🥇 1",
+        "rank": "1",
         "model": "Improved CNN",
         "type": "Deep Learning (CNN + BN + Dropout)",
         "accuracy": 99.06,
@@ -84,7 +83,7 @@ DEFAULT_COMPARATIVE_RESULTS = [
         "color": "#6EE7B7",
     },
     {
-        "rank": "🥈 2",
+        "rank": "2",
         "model": "Basic CNN",
         "type": "Deep Learning (Standard CNN)",
         "accuracy": 98.90,
@@ -94,7 +93,7 @@ DEFAULT_COMPARATIVE_RESULTS = [
         "color": "#93C5FD",
     },
     {
-        "rank": "🥉 3",
+        "rank": "3",
         "model": "ANN",
         "type": "Deep Learning (Dense Fully-Connected)",
         "accuracy": 97.38,
@@ -104,7 +103,7 @@ DEFAULT_COMPARATIVE_RESULTS = [
         "color": "#FCA5A5",
     },
     {
-        "rank": "4️⃣ 4",
+        "rank": "4",
         "model": "SVM (RBF)",
         "type": "Traditional ML (Baseline)",
         "accuracy": 96.84,
@@ -288,7 +287,6 @@ def run_prediction(model, model_type, processed_28):
         return mock_prediction(processed_28)
 
     if model_type == "keras":
-        # Check model input shape (CNN expects 4D: (1, 28, 28, 1); ANN expects 2D: (1, 784))
         input_shape = model.input_shape
         if len(input_shape) == 4:
             x = processed_28.reshape(1, 28, 28, 1)
@@ -354,7 +352,7 @@ def render_confidence_chart(probs, predicted):
             )
         )
         fig.update_layout(
-            title=dict(text="Class Probabilities (0–9)", font=dict(size=15, color="#E2E8F0")),
+            title=dict(text="Class Probabilities (0 to 9)", font=dict(size=15, color="#E2E8F0")),
             xaxis=dict(
                 title="Confidence (%)",
                 range=[0, 115],
@@ -382,7 +380,7 @@ def render_confidence_chart(probs, predicted):
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  Sidebar Layout
+#  Sidebar Layout (No Emojis)
 # ══════════════════════════════════════════════════════════════════════════════
 
 def render_sidebar(metadata, active_model_name):
@@ -390,7 +388,7 @@ def render_sidebar(metadata, active_model_name):
         st.markdown(
             """
             <div class="sidebar-header">
-                <span class="sidebar-icon">🔢</span>
+                <div class="sidebar-badge">HDR</div>
                 <div>
                     <div class="sidebar-title">Digit Recognition</div>
                     <div class="sidebar-subtitle">B.Tech Deep Learning Project</div>
@@ -403,7 +401,7 @@ def render_sidebar(metadata, active_model_name):
         st.markdown("---")
 
         # Student / Project Info
-        st.markdown("### 🎓 Project Details")
+        st.markdown("### Project Details")
         st.markdown(
             """
             - **Students**: Abhinav Vaidya, Gauri Joshi
@@ -416,7 +414,7 @@ def render_sidebar(metadata, active_model_name):
         st.markdown("---")
 
         # Active Model Card
-        st.markdown("### 🤖 Deployed Model")
+        st.markdown("### Deployed Model")
         model_acc = metadata.get("metrics", {}).get("test_accuracy", 0.9906) * 100
         model_f1 = metadata.get("metrics", {}).get("macro_f1", 0.9905) * 100
         model_sz = metadata.get("metrics", {}).get("model_size_mb", 2.58)
@@ -424,11 +422,11 @@ def render_sidebar(metadata, active_model_name):
         st.markdown(
             f"""
             <div class="model-info-box">
-                <div class="model-name">👑 {active_model_name}</div>
-                <div class="model-stat">🎯 Test Accuracy: <b>{model_acc:.2f}%</b></div>
-                <div class="model-stat">📈 Macro F1 Score: <b>{model_f1:.2f}%</b></div>
-                <div class="model-stat">⚡ Model Size: <b>{model_sz:.2f} MB</b></div>
-                <div class="model-stat">🧠 Architecture: <b>Conv2D + BN + Dropout</b></div>
+                <div class="model-name">{active_model_name} [Selected]</div>
+                <div class="model-stat">Test Accuracy: <b>{model_acc:.2f}%</b></div>
+                <div class="model-stat">Macro F1 Score: <b>{model_f1:.2f}%</b></div>
+                <div class="model-stat">Model Size: <b>{model_sz:.2f} MB</b></div>
+                <div class="model-stat">Architecture: <b>Conv2D + BN + Dropout</b></div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -437,18 +435,18 @@ def render_sidebar(metadata, active_model_name):
         st.markdown("---")
 
         # Comparative Performance Table
-        st.markdown("### 📊 Model Benchmark")
+        st.markdown("### Model Benchmark")
         comp_data = metadata.get("comparative_results", DEFAULT_COMPARATIVE_RESULTS)
         for item in comp_data:
             m_name = item["model"]
             m_acc = item["accuracy"]
             m_f1 = item.get("f1_score", item.get("f1", 0))
             m_color = item.get("color", "#93C5FD")
-            crown = "👑 " if "Improved" in m_name else ""
+            selected_tag = " [Best]" if "Improved" in m_name else ""
             st.markdown(
                 f"""
                 <div class="perf-card">
-                    <div class="perf-name">{crown}<b>{m_name}</b> ({item['type']})</div>
+                    <div class="perf-name"><b>{m_name}</b>{selected_tag} ({item['type']})</div>
                     <div class="perf-metrics">
                         <span class="perf-acc">Acc: <b>{m_acc:.2f}%</b></span>
                         <span class="perf-f1">F1: <b>{m_f1:.2f}%</b></span>
@@ -479,36 +477,36 @@ def render_sidebar(metadata, active_model_name):
 
 def main():
     # 1. Load model & metadata
-    with st.spinner("Loading Deep Learning Model…"):
+    with st.spinner("Loading Deep Learning Model..."):
         model, metadata, model_type = load_model_and_metadata()
 
     active_model_name = metadata.get("best_model_name", "Improved CNN")
     render_sidebar(metadata, active_model_name)
 
-    # 2. Hero Header
+    # 2. Hero Header (No Emojis)
     st.markdown(
         """
         <div class="hero">
             <div class="hero-title">Handwritten Digit Recognition</div>
             <div class="hero-subtitle">
-                Interactive Deep Learning GUI &bull; Real-Time Inference on MNIST
+                Comparative Deep Learning Analysis &bull; Real-Time Inference on MNIST
             </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    # 3. Status Badge
+    # 3. Status Badge (No Emojis)
     if model is not None:
         acc_disp = metadata.get("metrics", {}).get("test_accuracy", 0.9906) * 100
         st.markdown(
-            f'<div class="status-badge status-live">✅ Model Active — '
+            f'<div class="status-badge status-live">Status: Model Active — '
             f'<b>{active_model_name}</b> ({acc_disp:.2f}% Test Accuracy)</div>',
             unsafe_allow_html=True,
         )
     else:
         st.markdown(
-            '<div class="status-badge status-demo">⚠️ Demo Mode — '
+            '<div class="status-badge status-demo">Status: Demo Mode — '
             '<code>best_model.keras</code> loaded in simulated mode</div>',
             unsafe_allow_html=True,
         )
@@ -521,17 +519,17 @@ def main():
     image_to_predict = None
     input_source = None
 
-    # ── Left Column: Interactive Inputs ───────────────────────────────────────
+    # ── Left Column: Interactive Inputs (No Emojis) ───────────────────────────
     with col_input:
-        st.markdown('<div class="section-label">📥 Provide Digit Input</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-label">Input Digit</div>', unsafe_allow_html=True)
 
         tab_draw, tab_upload, tab_samples = st.tabs([
-            "✏️ Draw Digit", "📁 Upload Image", "🎲 MNIST Sample"
+            "Draw Digit", "Upload Image", "MNIST Sample"
         ])
 
         # TAB 1: DRAW CANVAS
         with tab_draw:
-            st.caption("Draw any digit (0–9) centered on the black canvas:")
+            st.caption("Draw any digit (0 to 9) centered on the black canvas:")
             ctrl1, ctrl2 = st.columns([1.5, 1])
             with ctrl1:
                 stroke_width = st.slider("Brush Size", min_value=12, max_value=34, value=22, step=2, key="canvas_stroke")
@@ -539,26 +537,38 @@ def main():
                 stroke_color = st.color_picker("Stroke Color", value="#FFFFFF", key="canvas_color")
 
             if not CANVAS_AVAILABLE:
-                st.error("`streamlit-drawable-canvas` is not installed. Run `pip install streamlit-drawable-canvas`.")
+                st.error("streamlit-drawable-canvas is not installed. Run: pip install streamlit-drawable-canvas")
                 canvas_result = None
             else:
-                canvas_result = st_canvas(
-                    fill_color="rgba(0,0,0,0)",
-                    stroke_width=stroke_width,
-                    stroke_color=stroke_color,
-                    background_color="#000000",
-                    height=300,
-                    width=300,
-                    drawing_mode="freedraw",
-                    key="digit_canvas",
-                    update_streamlit=True,
-                )
+                canvas_kwargs = {
+                    "fill_color": "rgba(0,0,0,0)",
+                    "stroke_width": stroke_width,
+                    "stroke_color": stroke_color,
+                    "background_color": "#000000",
+                    "height": 300,
+                    "width": 300,
+                    "drawing_mode": "freedraw",
+                    "key": "digit_canvas",
+                    "update_streamlit": True,
+                }
+                # Streamlit-drawable-canvas >= 0.12 requires return_image_data=True
+                # to populate canvas_result.image_data without throwing RuntimeError
+                try:
+                    canvas_result = st_canvas(**canvas_kwargs, return_image_data=True)
+                except TypeError:
+                    canvas_result = st_canvas(**canvas_kwargs)
 
-            predict_draw_btn = st.button("🔮 Predict Drawn Digit", type="primary", use_container_width=True, key="btn_draw")
+            predict_draw_btn = st.button("Predict Drawn Digit", type="primary", use_container_width=True, key="btn_draw")
             if predict_draw_btn:
-                if canvas_result is not None and canvas_result.image_data is not None:
-                    image_to_predict = canvas_result.image_data
-                    input_source = "Drawn Canvas"
+                if canvas_result is not None:
+                    try:
+                        raw_data = canvas_result.image_data
+                    except Exception:
+                        raw_data = None
+
+                    if raw_data is not None:
+                        image_to_predict = raw_data
+                        input_source = "Drawn Canvas"
 
         # TAB 2: UPLOAD IMAGE
         with tab_upload:
@@ -566,14 +576,14 @@ def main():
             uploaded_file = st.file_uploader(
                 "Choose an image file",
                 type=["png", "jpg", "jpeg"],
-                help="Works with both dark or white backgrounds automatically!",
+                help="Works with both dark and white backgrounds automatically.",
                 key="file_uploader",
             )
             if uploaded_file is not None:
                 try:
                     uploaded_pil = Image.open(uploaded_file)
                     st.image(uploaded_pil, caption="Uploaded Image", width=180)
-                    predict_upload_btn = st.button("🔮 Predict Uploaded Image", type="primary", use_container_width=True, key="btn_upload")
+                    predict_upload_btn = st.button("Predict Uploaded Image", type="primary", use_container_width=True, key="btn_upload")
                     if predict_upload_btn:
                         image_to_predict = uploaded_pil
                         input_source = "Uploaded Image"
@@ -598,12 +608,12 @@ def main():
 
                 st.image(Image.fromarray(sample_img_arr, mode="L").resize((140, 140), Image.NEAREST), caption=f"Ground Truth Label: {sample_lbl}", width=140)
 
-                predict_sample_btn = st.button("🔮 Predict MNIST Sample", type="primary", use_container_width=True, key="btn_sample")
+                predict_sample_btn = st.button("Predict MNIST Sample", type="primary", use_container_width=True, key="btn_sample")
                 if predict_sample_btn:
                     image_to_predict = Image.fromarray(sample_img_arr, mode="L")
                     input_source = f"MNIST Test Sample (Label: {sample_lbl})"
             else:
-                st.info("Sample file `mnist_samples.npz` not found. Use drawing or upload mode.")
+                st.info("Sample file mnist_samples.npz not found. Use drawing or upload mode.")
 
     # ── Handle Prediction Trigger ─────────────────────────────────────────────
     if image_to_predict is not None:
@@ -613,7 +623,7 @@ def main():
             st.session_state["prediction_error"] = "Please draw or select a valid digit first (canvas was blank)."
             st.session_state["prediction_done"] = False
         else:
-            with st.spinner("Analyzing digit features…"):
+            with st.spinner("Analyzing digit features..."):
                 t0 = time.perf_counter()
                 predicted, probs = run_prediction(model, model_type, processed_28)
                 elapsed_ms = (time.perf_counter() - t0) * 1000.0
@@ -629,16 +639,15 @@ def main():
             st.session_state["input_source"] = input_source
             st.session_state["processed_28"] = processed_28
 
-    # ── Right Column: Results & Analytics ─────────────────────────────────────
+    # ── Right Column: Results & Analytics (No Emojis) ─────────────────────────
     with col_output:
-        st.markdown('<div class="section-label">📊 Prediction Results</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-label">Prediction Results</div>', unsafe_allow_html=True)
 
         if st.session_state.get("prediction_error"):
             st.markdown(
                 f"""
                 <div class="result-error">
-                    <div style="font-size:2.5rem;">⚠️</div>
-                    <div style="font-size:1.05rem; font-weight:600; color:#FCA5A5;">Canvas Blank</div>
+                    <div style="font-size:1.1rem; font-weight:700; color:#FCA5A5;">[Notice] Canvas Blank</div>
                     <div style="font-size:0.85rem; color:#94A3B8;">{st.session_state['prediction_error']}</div>
                 </div>
                 """,
@@ -666,7 +675,7 @@ def main():
                         {confidence:.2f}% Confidence
                     </div>
                     <div class="result-meta">
-                        ⏱ Latency: <b>{elapsed_ms:.1f} ms</b> &nbsp;|&nbsp; 🤖 <b>{active_model_name}</b> &nbsp;|&nbsp; 📌 {src_label}
+                        Latency: <b>{elapsed_ms:.1f} ms</b> &nbsp;|&nbsp; Model: <b>{active_model_name}</b> &nbsp;|&nbsp; Source: {src_label}
                     </div>
                 </div>
                 """,
@@ -686,10 +695,10 @@ def main():
                 for rank_pos, idx in enumerate(sorted_idx[:5]):
                     pct = probs[idx] * 100.0
                     highlight = 'style="background:rgba(110,231,183,0.12); font-weight:700;"' if idx == predicted else ""
-                    crown_icon = "👑 " if idx == predicted else ""
+                    tag = "[Top] " if idx == predicted else ""
                     table_rows += (
                         f"<tr {highlight}>"
-                        f"<td>{crown_icon}Digit <b>{idx}</b></td>"
+                        f"<td>{tag}Digit <b>{idx}</b></td>"
                         f"<td>"
                         f'  <div class="prob-bar-outer">'
                         f'    <div class="prob-bar-inner" style="width:{pct:.1f}%;"></div>'
@@ -712,21 +721,21 @@ def main():
                 )
 
             with sub_col2:
-                st.markdown("**Model Input (28×28)**")
+                st.markdown("**Model Input (28x28)**")
                 # Show exactly what the CNN received after bounding box, 20x20 scaling, and center of mass shift
                 preview_pil = Image.fromarray((processed_28 * 255.0).astype(np.uint8), mode="L")
                 preview_large = preview_pil.resize((140, 140), Image.NEAREST)
-                st.image(preview_large, caption="Centered 28×28 Grayscale", width=140)
+                st.image(preview_large, caption="Centered 28x28 Grayscale", width=140)
 
         else:
-            # Default Waiting State
+            # Default Waiting State (No Emojis)
             st.markdown(
                 """
                 <div class="result-waiting">
-                    <div class="result-waiting-icon">🖊️</div>
+                    <div class="result-waiting-icon">[Ready]</div>
                     <div class="result-waiting-text">
-                        Draw a digit, upload an image, or pick an MNIST sample,<br>
-                        then click <b>Predict</b> to see the neural network's classification!
+                        Draw a digit, upload an image, or select an MNIST sample,<br>
+                        then click <b>Predict</b> to evaluate the neural network.
                     </div>
                 </div>
                 """,
@@ -734,7 +743,7 @@ def main():
             )
 
     # ══════════════════════════════════════════════════════════════════════════
-    #  Academic Report, Viva Prep & Model Comparison Section
+    #  Academic Report, Viva Prep & Model Comparison Section (No Emojis)
     # ══════════════════════════════════════════════════════════════════════════
     st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("---")
@@ -742,10 +751,10 @@ def main():
     exp_col1, exp_col2 = st.columns(2, gap="large")
 
     with exp_col1:
-        with st.expander("🔬 Comparative Model Evaluation (From Academic Submission)", expanded=False):
+        with st.expander("Comparative Model Evaluation (Academic Submission)", expanded=False):
             st.markdown(
                 """
-                ### 🏆 Experimental Results Summary
+                ### Experimental Results Summary
                 In our comparative study on the **MNIST** benchmark (60,000 training, 10,000 test images),
                 four distinct architectures were evaluated under identical conditions:
                 """
@@ -762,20 +771,20 @@ def main():
                 """
                 **Why Improved CNN Won**:
                 - Incorporates **Batch Normalization** after each convolutional layer, stabilizing intermediate feature distributions and accelerating convergence.
-                - Employs **Dropout (0.25 & 0.50)**, preventing neuron co-adaptation and eliminating overfitting.
+                - Employs **Dropout (0.25 and 0.50)**, preventing neuron co-adaptation and eliminating overfitting.
                 - Achieves the highest test accuracy (99.06%) and macro F1 score (99.05%).
                 """
             )
 
     with exp_col2:
-        with st.expander("🎓 Project Viva & Viva Voce Q&A Reference", expanded=False):
+        with st.expander("Project Viva and Technical Q&A Reference", expanded=False):
             st.markdown(
                 """
                 **Q1: Why does CNN outperform ANN for handwritten digit recognition?**  
                 *Answer:* ANN flattens 2D images into 1D vectors, losing all 2D spatial adjacency. CNN uses shared convolutional kernels to detect localized edges, curves, and loops regardless of translation.
 
                 **Q2: What is the purpose of Center-of-Mass (Centroid) centering?**  
-                *Answer:* The official MNIST benchmark normalizes digits by placing their center of mass at coordinate (14, 14) within a 20×20 box. Our GUI implements this exact algorithm for optimal generalization.
+                *Answer:* The official MNIST benchmark normalizes digits by placing their center of mass at coordinate (14, 14) within a 20x20 box. Our GUI implements this exact algorithm for optimal generalization.
 
                 **Q3: Why is SVM prediction significantly slower than CNN?**  
                 *Answer:* SVM with an RBF kernel must compute kernel distances between each test query and thousands of support vectors, scaling with $O(N_{sv} \\cdot D)$, while CNN inference executes parallel matrix operations.
@@ -788,30 +797,27 @@ def main():
     # ══════════════════════════════════════════════════════════════════════════
     #  How to Deploy for Free (Cloud Hosting Guide)
     # ══════════════════════════════════════════════════════════════════════════
-    with st.expander("🌐 How to Deploy This GUI Online for Free (Step-by-Step)", expanded=False):
+    with st.expander("How to Deploy This GUI Online for Free (Step-by-Step)", expanded=False):
         st.markdown(
             """
-            ### 🚀 Deploy for Free in 3 Minutes
+            ### Deployment Guide
             
-            #### Method 1: Streamlit Community Cloud (Recommended — 100% Free Forever)
+            #### Method 1: Streamlit Community Cloud (Recommended — 100% Free)
             1. **Push this project folder to GitHub**:
                ```bash
-               git init
                git add .
                git commit -m "Deploy Handwritten Digit Recognition GUI"
-               git remote add origin https://github.com/<your-username>/handwritten-digit-recognition.git
-               git branch -M main
-               git push -u origin main
+               git push origin main
                ```
             2. Visit [share.streamlit.io](https://share.streamlit.io) and log in with GitHub.
-            3. Click **"New app"**, select your repository, branch (`main`), and set Main file path to `app.py`.
-            4. Click **"Deploy!"** — your app is live at a public HTTPS URL (e.g. `https://digit-recognition.streamlit.app`)!
+            3. Click **New app**, select your repository, branch (`main`), and set Main file path to `app.py`.
+            4. Click **Deploy!** — your app is live at a public HTTPS URL.
 
             #### Method 2: Hugging Face Spaces (100% Free)
             1. Create a free account on [huggingface.co](https://huggingface.co).
             2. Click **New Space** &rarr; Select **Streamlit** SDK &rarr; Free CPU tier.
             3. Push the files (`app.py`, `best_model.keras`, `best_model_metadata.json`, `style.css`, `requirements.txt`).
-            4. Your GUI will automatically build and stay live 24/7!
+            4. Your GUI will automatically build and stay live 24/7.
             """
         )
 

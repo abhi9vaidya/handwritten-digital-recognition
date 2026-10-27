@@ -1,4 +1,4 @@
-# 🔢 Handwritten Digit Recognition — Interactive Deep Learning GUI
+# Handwritten Digit Recognition — Interactive Deep Learning GUI
 
 > **B.Tech Computer Science | Deep Learning Project**  
 > **Authors**: Abhinav Vaidya, Gauri Joshi (Roll Nos: B1-03, B1-08)  
@@ -6,31 +6,31 @@
 
 ---
 
-## 🌟 Overview
+## Overview
 
 This project provides an interactive, production-grade graphical user interface (GUI) built with **Streamlit** to demonstrate handwritten digit recognition. The underlying model is the **Improved CNN**, which achieved the highest test accuracy (**99.06%**) in our comparative evaluation of deep learning architectures on the MNIST benchmark.
 
 The application allows users to:
-1. ✏️ **Draw digits freehand** on an interactive black canvas.
-2. 📁 **Upload custom images** (photos or scans of handwritten digits in PNG/JPG/JPEG).
-3. 🎲 **Test real MNIST benchmark samples** directly from the test dataset to verify ground-truth classification.
-4. 📊 **Inspect complete class probability distributions (0–9)** via interactive Plotly charts and sorted confidence tables.
-5. 👁️ **Visualize the preprocessed 28×28 input** that the neural network actually sees after aspect-ratio scaling and center-of-mass alignment.
+1. **Draw digits freehand** on an interactive black canvas.
+2. **Upload custom images** (photos or scans of handwritten digits in PNG/JPG/JPEG).
+3. **Test real MNIST benchmark samples** directly from the test dataset to verify ground-truth classification.
+4. **Inspect complete class probability distributions (0–9)** via interactive Plotly charts and sorted confidence tables.
+5. **Visualize the preprocessed 28×28 input** that the neural network actually sees after aspect-ratio scaling and center-of-mass alignment.
 
 ---
 
-## 🏆 Comparative Evaluation Results (From Academic Experiments)
+## Comparative Evaluation Results (From Academic Experiments)
 
 | Rank | Model Architecture | Paradigm | Test Accuracy | Macro F1 | Training Time | Prediction Latency |
 |:---:|---|---|:---:|:---:|:---:|:---:|
-| 🥇 **1** | **Improved CNN** (Conv + BN + Dropout) | Deep Learning | **99.06%** | **99.05%** | 397.6 s | **3.36 s** (10k images) |
-| 🥈 **2** | **Basic CNN** (Standard Conv + MaxPool) | Deep Learning | 98.90% | 98.89% | 340.4 s | 2.75 s (10k images) |
-| 🥉 **3** | **ANN** (Dense Fully-Connected) | Deep Learning | 97.38% | 97.36% | 34.6 s | 0.82 s (10k images) |
-| 4️⃣ **4** | **SVM** (RBF Kernel, C=10, $\gamma$=scale) | Traditional ML | 96.84% | 96.82% | 11.9 s (10k sub) | 37.66 s (10k images) |
+| **1** | **Improved CNN** (Conv + BN + Dropout) | Deep Learning | **99.06%** | **99.05%** | 397.6 s | **3.36 s** (10k images) |
+| **2** | **Basic CNN** (Standard Conv + MaxPool) | Deep Learning | 98.90% | 98.89% | 340.4 s | 2.75 s (10k images) |
+| **3** | **ANN** (Dense Fully-Connected) | Deep Learning | 97.38% | 97.36% | 34.6 s | 0.82 s (10k images) |
+| **4** | **SVM** (RBF Kernel, C=10, $\gamma$=scale) | Traditional ML | 96.84% | 96.82% | 11.9 s (10k sub) | 37.66 s (10k images) |
 
 ---
 
-## 🚀 Running Locally
+## Running Locally
 
 ### 1. Install Dependencies
 Ensure you are using Python 3.9 – 3.12:
@@ -46,7 +46,7 @@ Open **http://localhost:8501** in your browser.
 
 ---
 
-## 🌐 Deploying Online for Free (100% Free Cloud Hosting)
+## Deploying Online for Free (100% Free Cloud Hosting)
 
 ### Method 1: Streamlit Community Cloud (Recommended — 100% Free Forever)
 1. Initialize a Git repository and push your project to GitHub:
@@ -84,7 +84,7 @@ Open **http://localhost:8501** in your browser.
 
 ---
 
-## 🖼️ Preprocessing & Normalization Pipeline
+## Preprocessing & Normalization Pipeline
 
 To ensure real-world drawn digits match the distribution of the MNIST dataset, the application applies the exact NIST/MNIST standardization protocol:
 
@@ -112,7 +112,7 @@ Softmax Probabilities & Predicted Class Output
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ├── app.py                         # Complete Streamlit GUI with Drawing & Upload
@@ -128,7 +128,7 @@ Softmax Probabilities & Predicted Class Output
 
 ---
 
-## 🎓 Academic Viva Highlights
+## Academic Viva Highlights
 
 - **Convolution vs Dense (ANN)**: Dense layers fail to capture spatial invariance and destroy 2D topology; CNN filters slide locally to detect edges, curves, and digit loops.
 - **Role of Batch Normalization**: Reduces internal covariate shift, allowing faster learning rates and stabilizing convergence.
